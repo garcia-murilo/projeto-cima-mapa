@@ -1,12 +1,12 @@
 // Passo A: Configuração do Supabase
-const SUPABASE_URL = 'https://nhiijcgvxxqolnhssmhk.supabase.co'; // Cole sua URL aqui
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5oaWlqY2d2eHhxb2xuaHNzbWhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5ODYwNDQsImV4cCI6MjA3MzU2MjA0NH0.zHysnXS6PqU37GRUXDl1Md0RoSpsa6X4V8MI-EMypm0';     // Cole sua Chave de API (anon key) aqui
+const SUPABASE_URL = 'https://nhiijcgvxxqolnhssmhk.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5oaWlqY2d2eHhxb2xuaHNzbWhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5ODYwNDQsImV4cCI6MjA3MzU2MjA0NH0.zHysnXS6PqU37GRUXDl1Md0RoSpsa6X4V8MI-EMypm0';
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Passo B: Inicialização do Mapa
 // Coordenadas para centralizar o mapa (ex: Rio de Janeiro)
-const initialCoords = [-22.9068, -43.1729]; 
+const initialCoords = [-22.9068, -43.1729];
 const map = L.map('map').setView(initialCoords, 12); // O '12' é o nível de zoom
 
 // Adiciona o "fundo" do mapa (o mapa em si) do OpenStreetMap
@@ -17,7 +17,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Função para buscar dados e adicionar ao mapa
 async function carregarDadosDosSensores() {
     // 1. Busca os dados da tabela 'sensores' no Supabase
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('sensores')
         .select('*'); // Seleciona todas as colunas
 
