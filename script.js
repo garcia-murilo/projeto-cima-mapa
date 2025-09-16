@@ -18,7 +18,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 async function carregarDadosDosSensores() {
     // 1. Busca os dados da tabela 'sensores' no Supabase
     const { data, error } = await supabaseClient
-        .from('sensores')
+        .from('Sensores')
         .select('*'); // Seleciona todas as colunas
 
     if (error) {
