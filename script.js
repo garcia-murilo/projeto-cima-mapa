@@ -20,9 +20,9 @@ async function carregarDadosDosSensores() {
     // Cores disponíveis: 'red', 'darkred', 'orange', 'green', 'darkgreen',
     // 'blue', 'purple', 'darkpurple', 'cadetblue'
     const iconePersonalizado = L.AwesomeMarkers.icon({
-        icon: 'tint', // Ícone de uma gota d'água
+        icon: 'map-marker', // Ícone de uma gota d'água
         markerColor: 'green', // Mude a cor aqui!
-        prefix: 'glyphicon'
+        prefix: 'fa'
     });
 
     const { data, error } = await supabaseClient
