@@ -20,9 +20,14 @@ async function carregarDadosDosSensores() {
     // Cores disponíveis: 'red', 'darkred', 'orange', 'green', 'darkgreen',
     // 'blue', 'purple', 'darkpurple', 'cadetblue'
     const iconePersonalizado = L.AwesomeMarkers.icon({
-        icon: 'map-marker', // Ícone de uma gota d'água
-        markerColor: 'green', // Mude a cor aqui!
-        prefix: 'fa'
+        icon: 'map-marker',
+        markerColor: 'green',
+        prefix: 'fa',
+        // --- As 3 linhas abaixo foram adicionadas ---
+        iconSize:    [35, 45], // Tamanho do pino
+        iconAnchor:  [17, 42], // Posição da "ponta" do pino
+        popupAnchor: [1, -34]  // Posição de onde o popup sai
+
     });
 
     const { data, error } = await supabaseClient
