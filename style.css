@@ -23,3 +23,17 @@ main {
     height: 100%; 
     width: 100%;
 }
+
+/* Ajustes para centralizar e melhorar o visual do ícone Font Awesome dentro do marcador */
+.awesome-marker-icon .fa {
+    line-height: 38px !important; /* Ajusta a altura da linha para centralizar verticalmente */
+    font-size: 20px !important; /* Aumenta o tamanho do ícone interno */
+}
+
+/* Ajusta o tamanho da sombra do marcador para o novo tamanho do ícone */
+.leaflet-marker-shadow {
+    width: 45px !important;
+    height: 45px !important;
+    margin-left: -15px !important;
+    margin-top: -20px !important;
+}
