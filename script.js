@@ -21,7 +21,7 @@ async function carregarDadosDosSensores() {
     // 'blue', 'purple', 'darkpurple', 'cadetblue'
     const iconePersonalizado = L.AwesomeMarkers.icon({
         icon: 'tint', // Ícone de uma gota d'água
-        markerColor: 'blue', // Mude a cor aqui!
+        markerColor: 'green', // Mude a cor aqui!
         prefix: 'glyphicon'
     });
 
