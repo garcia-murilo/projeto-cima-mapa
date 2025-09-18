@@ -26,8 +26,8 @@ main {
 
 /* Ajustes para centralizar e melhorar o visual do ícone Font Awesome dentro do marcador */
 .awesome-marker-icon .fa {
-    line-height: 41px !important; /* Ajusta a altura da linha para centralizar verticalmente */
-    font-size: 28px !important; /* Aumenta o tamanho do ícone interno */
+    line-height: 51px !important; /* Ajusta a altura da linha para centralizar verticalmente */
+    font-size: 38px !important; /* Aumenta o tamanho do ícone interno */
 }
 
 /* Ajusta o tamanho da sombra do marcador para o novo tamanho do ícone */
