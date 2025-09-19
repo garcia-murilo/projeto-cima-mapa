@@ -23,7 +23,7 @@ async function carregarDadosDosSensores() {
         icon: 'map-marker',
         markerColor: 'green',
         prefix: 'fa',
-        iconSize:    [35, 45], // Tamanho do pino
+        iconSize:    [70, 90], // Tamanho do pino
         iconAnchor:  [17, 42], // Posição da "ponta" do pino
         popupAnchor: [1, -34]  // Posição de onde o popup sai
 
