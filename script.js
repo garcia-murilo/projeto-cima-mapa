@@ -27,6 +27,7 @@ async function carregarDadosDosSensores() {
         iconSize:    [35, 45], // Tamanho do pino
         iconAnchor:  [17, 42], // Posição da "ponta" do pino
         popupAnchor: [1, -34]  // Posição de onde o popup sai
+        extraClasses: 'fa-2x'
 
     });
 
