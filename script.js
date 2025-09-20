@@ -20,8 +20,8 @@ async function carregarDadosDosSensores() {
     // Cores disponíveis: 'red', 'darkred', 'orange', 'green', 'darkgreen',
     // 'blue', 'purple', 'darkpurple', 'cadetblue'
     const iconePersonalizado = L.AwesomeMarkers.icon({
-        icon: 'green',
-        markerColor: 'white',
+        icon: 'circle',
+        markerColor: 'green',
         prefix: 'fa',
         iconSize:    [35, 45], // Tamanho do pino
         iconAnchor:  [17, 42], // Posição da "ponta" do pino
