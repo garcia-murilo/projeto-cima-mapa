@@ -56,7 +56,7 @@ async function carregarDadosDosSensores() {
     // 'blue', 'purple', 'darkpurple', 'cadetblue'
     const iconePersonalizado = L.AwesomeMarkers.icon({
         icon: 'circle',
-        markerColor: 'green',
+        markerColor: 'darkgreen',
         prefix: 'fa',
         iconSize:    [35, 45], // Tamanho do pino
         iconAnchor:  [17, 42], // Posição da "ponta" do pino
@@ -76,15 +76,19 @@ async function carregarDadosDosSensores() {
     data.forEach(leitura => {
         if (leitura.latitude && leitura.longitude) {
             
-            // 2. Use o ícone personalizado ao criar o marcador
             const marcador = L.marker([leitura.latitude, leitura.longitude], {icon: iconePersonalizado}).addTo(map);
             
+            // ▼▼▼ 1. CHAME A FUNÇÃO DE DIAGNÓSTICO AQUI ▼▼▼
+            const diagnostico = gerarDiagnosticoAgua(leitura);
+
             marcador.bindPopup(`
                 <b>Ponto de Coleta:</b> ${leitura.nome_ponto}<br>
                 <hr>
                 <b>Temperatura:</b> ${leitura.temperatura ? leitura.temperatura.toFixed(2) + ' °C' : 'N/A'}<br>
                 <b>pH:</b> ${leitura.ph ? leitura.ph.toFixed(2) : 'N/A'}<br>
                 <b>Turbidez:</b> ${leitura.turbidez ? leitura.turbidez.toFixed(2) + ' NTU' : 'N/A'}<br>
+                <br>
+                <b>Diagnóstico: <span style="color: ${diagnostico.cor}; font-weight: bold;">${diagnostico.texto}</span></b><br>
                 <br>
                 <b>Data da Leitura:</b> ${new Date(leitura.created_at).toLocaleString('pt-BR')}
             `);
