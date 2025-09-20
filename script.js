@@ -12,6 +12,41 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map
     attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
 }).addTo(map);
 
+function gerarDiagnosticoAgua(leitura) {
+    const { temperatura, ph, turbidez } = leitura;
+    let classe = '';
+    let cor = '';
+    let observacao = '';
+
+    // Lógica de classificação baseada nos critérios CONAMA (simplificado)
+    if (ph >= 6.8 && ph <= 7.5 && turbidez < 2) {
+        classe = 'Ótima';
+        cor = '#007BFF'; // Azul vivo
+    } else if (ph >= 6.0 && ph <= 9.0 && turbidez < 20) {
+        classe = 'Boa';
+        cor = 'green';
+    } else if (ph >= 6.0 && ph <= 9.0 && turbidez < 40) {
+        classe = 'Aceitável';
+        cor = '#FFC107'; // Amarelo/Âmbar
+    } else if (turbidez >= 100) {
+        classe = 'Crítica';
+        cor = '#DC3545'; // Vermelho forte
+    } else {
+        // Se não se encaixa nas anteriores, é Inadequada
+        classe = 'Inadequada';
+        cor = '#F08C00'; // Laranja
+    }
+
+    // Adiciona uma observação sobre a temperatura como fator de estresse
+    if (temperatura > 30) {
+        observacao = ' (Fator de Estresse: Temperatura Alta)';
+    }
+
+    // Monta o texto final do diagnóstico
+    const textoFinal = `${classe}${observacao}`;
+
+    return { texto: textoFinal, cor: cor };
+}
 
 // Função para buscar dados e adicionar ao mapa
 async function carregarDadosDosSensores() {
