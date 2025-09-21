@@ -58,7 +58,7 @@ async function carregarDadosDosSensores() {
             // Cria um ícone inicial (a cor será atualizada na simulação se for o alvo)
             const icone = L.AwesomeMarkers.icon({
                 icon: 'circle',
-                markerColor: 'green',
+                markerColor: 'darkgreen',
                 prefix: 'fa',
                 iconSize: [35, 45],
                 iconAnchor: [17, 42],
@@ -93,7 +93,7 @@ async function carregarDadosDosSensores() {
 
 // ▼▼▼ ADIÇÃO 4: A nova função que cria a simulação em tempo real ▼▼▼
 function iniciarSimulacaoTempoReal() {
-    const nomeDaEstacao = 'Torneira - Centro de Tecnologia (CT)';
+    const nomeDaEstacao = 'SIAc';
     const marcadorAlvo = marcadores[nomeDaEstacao];
     let dadosAtuais = { ...dadosIniciais[nomeDaEstacao] };
 
