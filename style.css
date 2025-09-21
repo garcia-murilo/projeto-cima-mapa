@@ -32,3 +32,18 @@ main {
     margin-left: -15px !important;
     margin-top: -20px !important;
 }
+
+/* Efeito de pulso para o marcador em tempo real */
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 128, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 128, 0, 0);
+  }
+}
+
+.marker-pulse {
+  animation: pulse-animation 1.5s infinite;
+  border-radius: 50%;
+}
